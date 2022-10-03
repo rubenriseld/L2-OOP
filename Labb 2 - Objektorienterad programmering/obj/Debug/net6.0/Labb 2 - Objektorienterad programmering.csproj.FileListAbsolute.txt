@@ -1,0 +1,15 @@
+C:\Users\ruben\source\repos\Labb 2 - Objektorienterad programmering\Labb 2 - Objektorienterad programmering\bin\Debug\net6.0\Labb 2 - Objektorienterad programmering.exe
+C:\Users\ruben\source\repos\Labb 2 - Objektorienterad programmering\Labb 2 - Objektorienterad programmering\bin\Debug\net6.0\Labb 2 - Objektorienterad programmering.deps.json
+C:\Users\ruben\source\repos\Labb 2 - Objektorienterad programmering\Labb 2 - Objektorienterad programmering\bin\Debug\net6.0\Labb 2 - Objektorienterad programmering.runtimeconfig.json
+C:\Users\ruben\source\repos\Labb 2 - Objektorienterad programmering\Labb 2 - Objektorienterad programmering\bin\Debug\net6.0\Labb 2 - Objektorienterad programmering.dll
+C:\Users\ruben\source\repos\Labb 2 - Objektorienterad programmering\Labb 2 - Objektorienterad programmering\bin\Debug\net6.0\Labb 2 - Objektorienterad programmering.pdb
+C:\Users\ruben\source\repos\Labb 2 - Objektorienterad programmering\Labb 2 - Objektorienterad programmering\obj\Debug\net6.0\Labb 2 - Objektorienterad programmering.csproj.AssemblyReference.cache
+C:\Users\ruben\source\repos\Labb 2 - Objektorienterad programmering\Labb 2 - Objektorienterad programmering\obj\Debug\net6.0\Labb 2 - Objektorienterad programmering.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ruben\source\repos\Labb 2 - Objektorienterad programmering\Labb 2 - Objektorienterad programmering\obj\Debug\net6.0\Labb 2 - Objektorienterad programmering.AssemblyInfoInputs.cache
+C:\Users\ruben\source\repos\Labb 2 - Objektorienterad programmering\Labb 2 - Objektorienterad programmering\obj\Debug\net6.0\Labb 2 - Objektorienterad programmering.AssemblyInfo.cs
+C:\Users\ruben\source\repos\Labb 2 - Objektorienterad programmering\Labb 2 - Objektorienterad programmering\obj\Debug\net6.0\Labb 2 - Objektorienterad programmering.csproj.CoreCompileInputs.cache
+C:\Users\ruben\source\repos\Labb 2 - Objektorienterad programmering\Labb 2 - Objektorienterad programmering\obj\Debug\net6.0\Labb 2 - Objektorienterad programmering.dll
+C:\Users\ruben\source\repos\Labb 2 - Objektorienterad programmering\Labb 2 - Objektorienterad programmering\obj\Debug\net6.0\refint\Labb 2 - Objektorienterad programmering.dll
+C:\Users\ruben\source\repos\Labb 2 - Objektorienterad programmering\Labb 2 - Objektorienterad programmering\obj\Debug\net6.0\Labb 2 - Objektorienterad programmering.pdb
+C:\Users\ruben\source\repos\Labb 2 - Objektorienterad programmering\Labb 2 - Objektorienterad programmering\obj\Debug\net6.0\Labb 2 - Objektorienterad programmering.genruntimeconfig.cache
+C:\Users\ruben\source\repos\Labb 2 - Objektorienterad programmering\Labb 2 - Objektorienterad programmering\obj\Debug\net6.0\ref\Labb 2 - Objektorienterad programmering.dll
