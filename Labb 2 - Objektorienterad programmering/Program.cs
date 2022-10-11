@@ -3,7 +3,7 @@
 //lista för alla köksapparater
 List<KitchenAppliance> KitchenApplianceList = new List<KitchenAppliance>();
 
-//tre befintliga apparater som finns vid upsptart
+//tre befintliga apparater som finns vid uppstart
 KitchenApplianceList.Add(new KitchenAppliance("Kylskåp", "Electrolux", true));
 KitchenApplianceList.Add(new KitchenAppliance("Brödrost", "SMEG", true));
 KitchenApplianceList.Add(new KitchenAppliance("Ugn", "Electrolux", true));
