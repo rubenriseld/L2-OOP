@@ -1,15 +1,20 @@
 ﻿bool isRunning = true;
 
+//lista för alla köksapparater
 List<KitchenAppliance> KitchenApplianceList = new List<KitchenAppliance>();
+
+//tre befintliga apparater som finns vid upsptart
 KitchenApplianceList.Add(new KitchenAppliance("Kylskåp", "Electrolux", true));
 KitchenApplianceList.Add(new KitchenAppliance("Brödrost", "SMEG", true));
 KitchenApplianceList.Add(new KitchenAppliance("Ugn", "Electrolux", true));
 
+//while-loop för menyn som utgångspunkt så länge användaren inte väljer att avsluta
 while (isRunning == true)
 {
     DisplayMenu();
     int inputNumber;
 
+    //felhantering i de fall då inmatat värde ej är en siffra
     if (int.TryParse(Console.ReadLine(), out inputNumber) == true)
     {
         switch (inputNumber)
@@ -31,14 +36,15 @@ while (isRunning == true)
                 isRunning = false;
                 break;
             default:
+                //felhantering i de fall då inmatad siffra inte står med på listan
+                Console.WriteLine("\nAnge en siffra som är listad!\n");
                 break;
         }
     }
-    else Console.WriteLine("Endast siffror!");
+    else Console.WriteLine("\nVälj ett val från menyn med en siffra!\n");
 }
 
-
-//HUVUDMENY
+//metod för att skriva ut huvudmenyn
 void DisplayMenu()
 {
     Console.WriteLine(
@@ -47,80 +53,108 @@ void DisplayMenu()
         "2. Lägg till kökapparat\n" +
         "3. Lista köksapparater\n" +
         "4. Ta bort köksapparat\n" +
-        "5. Avsluta");
-    Console.Write(">");
+        "5. Avsluta\n");
+    Console.Write("Ange val:\n>");
 }
-//detaljerad lista över alla apparater
+
+//metod för att skriva ut detaljerad lista över alla befintliga apparater
 void DisplayInfoList()
 {
-    foreach (var appliance in KitchenApplianceList)
+    if (KitchenApplianceList.Count == 0)
     {
-        Console.WriteLine($"Typ: {appliance.type}\n" +
-            $"Märke: {appliance.brand}\n" +
-            $"Fungerar: {appliance.CheckFunctioning()}\n" +
-            $"-----");
+        Console.WriteLine("\nDet finns inga köksapparater i köket, " +
+            "vänligen lägg till nya i huvudmenyn!\n");
+    }
+    else
+    {
+        Console.WriteLine("\nListar köksapparater i köket...\n");
+        foreach (var appliance in KitchenApplianceList)
+        {
+            Console.WriteLine($"Typ: {appliance.type}\n" +
+                $"Märke: {appliance.brand}\n" +
+                $"Fungerar: {appliance.CheckFunctioning()}\n");
+        }
     }
 }
-//visa numrerad lista över apparater för användning och borttagning
+
+//metod för att skriva ut kortfattad lista över apparater, vid användning och borttagning
 void DisplayChoiceList()
 {
+    Console.WriteLine("\nVälj köksapparat:\n");
     for (int i = 0; i < KitchenApplianceList.Count(); i++)
     {
         Console.WriteLine($"{i + 1}. {KitchenApplianceList[i].type}");
     }
-    Console.Write(">");
+    Console.Write("\nAnge val:\n>");
 }
-//använd en apparat
+
+//metod för att använda en av köksapparaterna
 void UseAppliance()
 {
     bool inputRunCondition = true;
     int inputNumber;
 
-    while (inputRunCondition == true)
+    if (KitchenApplianceList.Count == 0)
     {
-        DisplayChoiceList();
-        if (int.TryParse(Console.ReadLine(), out inputNumber) == true)
+        Console.WriteLine("\nDet finns inga köksapparater i köket, " +
+            "vänligen lägg till nya i huvudmenyn!\n");
+    }
+    else
+    {
+        while (inputRunCondition == true)
         {
-            //felhantering i de fall då inmatad siffra inte står med på listan
-            try
+            DisplayChoiceList();
+            //felhantering i de fall då inmatat värde ej är en siffra
+            if (int.TryParse(Console.ReadLine(), out inputNumber) == true)
             {
-                KitchenApplianceList[inputNumber - 1].Use();
-                inputRunCondition = false;
+                //felhantering i de fall då inmatad siffra inte står med på listan
+                try
+                {
+                    KitchenApplianceList[inputNumber - 1].Use();
+                    inputRunCondition = false;
+                }
+                catch
+                {
+                    Console.WriteLine("\nAnge en siffra som är listad!");
+
+                }
             }
-            catch
+            else
             {
-                Console.WriteLine("Ange en siffra som är listad!");
-
+                Console.WriteLine("\nVälj apparat från listan med en siffra!");
             }
-
-        }
-        else
-        {
-            Console.WriteLine("Välj apparat från listan med en siffra!");
         }
     }
-
 }
+
 //metod för att lägga till apparat
 void AddAppliance()
 {
     bool inputRunCondition = true;
     bool isWorking;
 
+    Console.WriteLine("\nLägger till en köksapparat.\n");
+
     Console.Write("Ange typ:\n>");
     string typeInput = Console.ReadLine();
+
     Console.Write("Ange märke:\n>");
     string brandInput = Console.ReadLine();
+
     while (inputRunCondition == true)
     {
         Console.Write("Ange om apparaten fungerar (j/n):\n>");
+        //enkel felhantering om inmatning är stor bokstav istället för liten
         string isFunctioningInput = Console.ReadLine().ToLower();
+
+        //felhantering i de fall då inmatat värde ej är "j" eller "n"
         if (isFunctioningInput == "j" || isFunctioningInput == "n")
         {
             if (isFunctioningInput == "j") isWorking = true;
             else isWorking = false;
+
             KitchenApplianceList.Add(new KitchenAppliance(typeInput, brandInput, isWorking));
-            Console.WriteLine("Tillagd!");
+            Console.WriteLine("\nTillagd!\n");
             inputRunCondition = false;
         }
         else
@@ -129,31 +163,42 @@ void AddAppliance()
         }
     }
 }
+
+//metod för att ta bort en apparat
 void RemoveAppliance()
 {
     bool inputRunCondition = true;
     int inputNumber;
 
-    while (inputRunCondition == true)
+    if (KitchenApplianceList.Count == 0)
     {
-        DisplayChoiceList();
-        if (int.TryParse(Console.ReadLine(), out inputNumber) == true)
+        Console.WriteLine("\nDet finns inga köksapparater i köket, " +
+            "vänligen lägg till nya i huvudmenyn!\n");
+    }
+    else
+    {
+        while (inputRunCondition == true)
         {
-            //felhantering i de fall då inmatad siffra inte står med på listan
-            try
+            DisplayChoiceList();
+            //felhantering i de fall då inmatat värde ej är en siffra
+            if (int.TryParse(Console.ReadLine(), out inputNumber) == true)
             {
-                KitchenApplianceList.RemoveAt(inputNumber - 1);
-                inputRunCondition = false;
+                //felhantering i de fall då inmatad siffra inte står med på listan
+                try
+                {
+                    KitchenApplianceList.RemoveAt(inputNumber - 1);
+                    inputRunCondition = false;
+                    Console.WriteLine("\nBorttagen!\n");
+                }
+                catch
+                {
+                    Console.WriteLine("\nAnge en siffra som är listad!");
+                }
             }
-            catch
+            else
             {
-                Console.WriteLine("Ange en siffra som är listad!");
-
+                Console.WriteLine("\nVälj apparat från listan med en siffra!");
             }
-        }
-        else
-        {
-            Console.WriteLine("Välj apparat från listan med en siffra!");
         }
     }
 }
